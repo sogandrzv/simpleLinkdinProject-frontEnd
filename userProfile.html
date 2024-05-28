@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+<h1>user profile</h1>
+<div id="profile-container">
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const profileId = parseInt(urlParams.get('id'));
+
+        fetch('users.json')
+            .then(response => response.json())
+            .then(data => {
+                const profile = data.find(profile => profile.id === profileId);
+                const profileContainer = document.getElementById('profile-container');
+                if (profile) {
+                    profileContainer.innerHTML = `
+                        <img src="${profile.image}" alt="${profile.name}">
+                        <h2>${profile.name}</h2>
+                        <p>Age: ${profile.age}</p>
+                        <p>Username: ${profile.username}</p>
+                        <p>Biography: ${profile.biography}</p>
+                        <p>Birthdate: ${profile.birthdate}</p>
+                        <p>Skills: ${profile.skills.join(', ')}</p>
+                        <p>Sex: ${profile.sex}</p>
+                        <p>Education: ${profile.education}</p>
+                        <p>Work Experiences: ${profile.workExperiences}</p>
+                    `;
+                } else {
+                    console.error('Profile not found');
+                    profileContainer.innerHTML = `<strong>Profile not found</strong>`;
+                }
+            })
+    });
+</script>
+</body>
+</html>
