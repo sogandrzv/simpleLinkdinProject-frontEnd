@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <script src="src/auth.js"></script>
+</head>
+<body class="bg-secondary text-white">
+    <div class="container my-5 p-5 rounded shadow" style="max-width: 500px;">
+        <div class="text-center mb-4">
+            <img src="assests/LinkedIn_icon.svg.png" alt="logo" class="logo mb-3" style="max-width: 100px;">
+            <h1>LinkedIn</h1>
+        </div>
+        <h2>Sign in</h2>
+        <form autocomplete="on" onsubmit="event.preventDefault(); saveSignInUserData()">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" class="form-control" id="username" name="username">
+                <span id="usernameError" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="pwd" class="form-label">Password:</label>
+                <input type="password" class="form-control" id="pwd" name="pwd">
+                <span id="pwdError" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <hr>
+        <h2>Sign up</h2>
+        <form autocomplete="on" onsubmit="event.preventDefault(); saveSignUpUserData()">
+            <div class="mb-3">
+                <label for="fullname" class="form-label">Full Name:</label>
+                <input type="text" class="form-control" id="fullname" name="fullname">
+                <span id="fullnameError" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="email" name="email">
+                <span id="emailError" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="signupUsername" class="form-label">Username:</label>
+                <input type="text" class="form-control" id="signupUsername" name="signupUsername">
+                <span id="signupUsernameError" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="signupPwd" class="form-label">Password:</label>
+                <input type="password" class="form-control" id="signupPwd" name="signupPwd">
+                <span id="signupPwdError" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="country" class="form-label">Country:</label>
+                <select class="form-select" id="country" name="country">
+                    <option value="australia">Australia</option>
+                    <option value="canada">Canada</option>
+                    <option value="usa">USA</option>
+                    <option value="iran">Iran</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="subject" class="form-label">Biography (school, work, ...):</label>
+                <textarea class="form-control" id="subject" name="subject" rows="5" placeholder="Write something.."></textarea>
+                <span id="biographyError" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
